@@ -3,7 +3,7 @@
 <html class="theme-default" dir="ltr" lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport" />
     <title>FISH KIDS</title>
     <meta
       content="Get your kids out of their flop era and into their guap era with FISH KIDS! Help your youngsters develop fine motor skills."
@@ -821,18 +821,6 @@
           Arial,
           sans-serif;
       }
-      /* Match the website backdrop to the original Fish Kids game artwork. */
-      html {
-        background-color: #128dac;
-      }
-      body {
-        background-color: #128dac;
-        background-image: url("assets/game-background.jpg");
-        background-position: center center;
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-      }
 
       /* One continuous content panel, including the page title. */
       article.notion-root.max-width {
@@ -1030,29 +1018,41 @@
         display: none;
       }
 
-      /* Let the browser's normal overscroll and pull-to-refresh work.
-         The solid ocean color is visible briefly when the page bounces. */
+      /* Blue remains behind the artwork for natural pull-to-refresh / overscroll. */
       html {
         min-height: 100%;
         background: #128dac;
       }
       body {
         min-height: 100vh;
+        margin: 0;
         background: transparent;
       }
-      /* A fixed viewport layer keeps the artwork stationary while scrolling.
-         Cover preserves the image's proportions and crops its edges on
-         portrait AND landscape screens instead of squeezing or leaving bars. */
-      body::before {
-        content: "";
+
+      /* A REAL fixed element, separate from the scrolling page: unlike a
+         CSS background-attachment: fixed on mobile, this stays in place.
+         100lvh locks its image dimensions when browser bars hide/show;
+         object-fit: cover fills portrait AND landscape without distortion.
+         viewport-fit=cover above also fills the landscape notch/safe areas. */
+      .fish-viewport-background {
         position: fixed;
-        inset: 0;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh; /* Fallback for browsers without large viewport units. */
+        height: 100lvh;
         z-index: 0;
+        overflow: hidden;
         pointer-events: none;
-        background-image: url("assets/game-background.jpg");
-        background-position: center center;
-        background-size: cover;
-        background-repeat: no-repeat;
+        background-color: #128dac;
+      }
+      .fish-viewport-background img {
+        display: block;
+        width: 100% !important;
+        height: 100% !important;
+        max-width: none;
+        object-fit: cover;
+        object-position: center center;
       }
       .super-root {
         position: relative;
@@ -1090,6 +1090,9 @@
     </style>
   </head>
   <body>
+    <div class="fish-viewport-background" aria-hidden="true">
+      <img src="assets/game-background.jpg" alt="" fetchpriority="high" />
+    </div>
     <div class="super-root">
       <div class="super-content-wrapper">
         <main class="super-content page__index" id="page-index">
