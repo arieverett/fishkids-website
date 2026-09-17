@@ -1030,31 +1030,29 @@
         display: none;
       }
 
-      /* Paint the artwork on the document canvas AND a fixed viewport layer.
-         The former covers browser edge bounce; the latter stays visible while
-         scrolling even on mobile browsers with limited fixed-bg support. */
+      /* Let the browser's normal overscroll and pull-to-refresh work.
+         The solid ocean color is visible briefly when the page bounces. */
       html {
         min-height: 100%;
-        background-color: #55bdd0;
-        background-image: url("assets/game-background.jpg");
-        background-position: center center;
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        overscroll-behavior-y: none;
+        background: #128dac;
       }
       body {
         min-height: 100vh;
         background: transparent;
-        overscroll-behavior-y: none;
       }
+      /* A fixed viewport layer keeps the artwork stationary while scrolling.
+         Cover preserves the image's proportions and crops its edges on
+         portrait AND landscape screens instead of squeezing or leaving bars. */
       body::before {
         content: "";
         position: fixed;
         inset: 0;
         z-index: 0;
         pointer-events: none;
-        background: url("assets/game-background.jpg") center center / cover no-repeat;
+        background-image: url("assets/game-background.jpg");
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
       }
       .super-root {
         position: relative;
@@ -1070,14 +1068,6 @@
           margin-right: auto;
           padding-left: clamp(20px, 5vw, 48px);
           padding-right: clamp(20px, 5vw, 48px);
-        }
-        /* Fit the ENTIRE background into the viewport, rather than cropping it
-           with cover. This intentionally adjusts its aspect ratio to the screen. */
-        html {
-          background-size: 100% 100%;
-        }
-        body::before {
-          background-size: 100% 100%;
         }
       }
       @media (max-width: 680px) {
