@@ -972,6 +972,131 @@
           gap: 8px 12px;
         }
       }
+
+      /* Responsive adjustments: preserve the author's research and all page copy. */
+
+      /* Keep the text equally inset from BOTH sides of pricing and testimonial cards.
+         The old empty icon reserved extra room only on the left. */
+      .fish-pricing-grid .notion-callout,
+      .fish-testimonial-grid .notion-callout {
+        padding: 24px !important;
+      }
+      .fish-pricing-grid .notion-callout__icon,
+      .fish-testimonial-grid .notion-callout__icon {
+        display: none !important;
+      }
+      .fish-pricing-grid .notion-callout__content,
+      .fish-testimonial-grid .notion-callout__content {
+        margin-inline-start: 0;
+        min-width: 0;
+        width: 100%;
+      }
+
+      /* Grid rows provide a shared height. Flex pushes both payment links to
+         the bottom, independent of each plan's description/feature length. */
+      .fish-pricing-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: var(--column-spacing);
+        align-items: stretch;
+      }
+      .fish-pricing-grid > .notion-column {
+        width: auto !important;
+        min-width: 0;
+        margin-inline-start: 0 !important;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+      }
+      .fish-pricing-grid > .notion-column > .notion-callout {
+        display: flex;
+        flex: 1 1 auto;
+        height: auto !important;
+        margin: 0;
+      }
+      .fish-pricing-grid .notion-callout__content {
+        display: flex;
+        flex: 1 1 auto;
+        flex-direction: column;
+      }
+      .fish-pricing-grid .fish-pricing-pay {
+        margin-top: auto;
+        padding-top: 28px;
+      }
+      /* Both plans contain an empty placeholder after the payment link.
+         Hide it so it cannot shift the link up differently on each card. */
+      .fish-pricing-grid .fish-pricing-pay + .notion-text:empty,
+      .fish-pricing-grid > .notion-column > .notion-text:empty {
+        display: none;
+      }
+
+      /* Paint the artwork on the document canvas AND a fixed viewport layer.
+         The former covers browser edge bounce; the latter stays visible while
+         scrolling even on mobile browsers with limited fixed-bg support. */
+      html {
+        min-height: 100%;
+        background-color: #55bdd0;
+        background-image: url("assets/game-background.jpg");
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        overscroll-behavior-y: none;
+      }
+      body {
+        min-height: 100vh;
+        background: transparent;
+        overscroll-behavior-y: none;
+      }
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        background: url("assets/game-background.jpg") center center / cover no-repeat;
+      }
+      .super-root {
+        position: relative;
+        z-index: 1;
+      }
+
+      /* Leave a visible strip of ocean around the panel on phones and tablets. */
+      @media (max-width: 900px) {
+        article.notion-root.max-width {
+          width: calc(100% - 40px);
+          max-width: calc(100% - 40px);
+          margin-left: auto;
+          margin-right: auto;
+          padding-left: clamp(20px, 5vw, 48px);
+          padding-right: clamp(20px, 5vw, 48px);
+        }
+        /* Fit the ENTIRE background into the viewport, rather than cropping it
+           with cover. This intentionally adjusts its aspect ratio to the screen. */
+        html {
+          background-size: 100% 100%;
+        }
+        body::before {
+          background-size: 100% 100%;
+        }
+      }
+      @media (max-width: 680px) {
+        article.notion-root.max-width {
+          width: calc(100% - 28px);
+          max-width: calc(100% - 28px);
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+        .fish-pricing-grid {
+          grid-template-columns: minmax(0, 1fr);
+          gap: 14px;
+          grid-auto-rows: 1fr;
+        }
+        .fish-pricing-grid .notion-callout,
+        .fish-testimonial-grid .notion-callout {
+          padding: 20px !important;
+        }
+      }
     </style>
   </head>
   <body>
@@ -1448,7 +1573,7 @@
               Testimonials
             </h1>
             <div
-              class="notion-column-list"
+              class="notion-column-list fish-testimonial-grid"
               id="block-de3ff5b37c604fc8845f31fe14749756"
             >
               <div
