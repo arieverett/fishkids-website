@@ -53,8 +53,8 @@ body {
   fill: currentColor;
   margin: 0;
   font-family: var(--secondary-font);
-  transition-property: color, background-color, border-color,
-    text-decoration-color, fill, stroke;
+  transition-property:
+    color, background-color, border-color, text-decoration-color, fill, stroke;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
@@ -92,8 +92,8 @@ body {
 
 code {
   /* Use monospace before Courier so font looks better on Android Chrome. */
-  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace,
-    Courier;
+  font-family:
+    "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace, Courier;
 }
 
 .static-tweet {

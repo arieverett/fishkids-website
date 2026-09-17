@@ -258,7 +258,9 @@
   justify-content: flex-start;
 }
 
-.static-renderer.mobile .super-footer.stack.no-footnote.no-socials .super-footer__divider {
+.static-renderer.mobile
+  .super-footer.stack.no-footnote.no-socials
+  .super-footer__divider {
   display: none;
 }
 
@@ -501,7 +503,9 @@
   margin-top: 74px;
 }
 
-.notion-header.collection .notion-header__content.no-cover.no-icon .notion-header__title-wrapper {
+.notion-header.collection
+  .notion-header__content.no-cover.no-icon
+  .notion-header__title-wrapper {
   margin-top: 44px;
 }
 
@@ -603,7 +607,9 @@
   margin-top: 100px;
 }
 
-.static-renderer.mobile .notion-header__content.no-icon .notion-header__title-wrapper {
+.static-renderer.mobile
+  .notion-header__content.no-icon
+  .notion-header__title-wrapper {
   margin-top: 56px;
 }
 
@@ -652,7 +658,18 @@
   text-decoration: none;
 }
 
-.notion-link:not(.color-default, .color-gray, .color-brown, .color-orange, .color-yellow, .color-green, .color-blue, .color-purple, .color-pink, .color-red) {
+.notion-link:not(
+  .color-default,
+  .color-gray,
+  .color-brown,
+  .color-orange,
+  .color-yellow,
+  .color-green,
+  .color-blue,
+  .color-purple,
+  .color-pink,
+  .color-red
+) {
   color: inherit;
 }
 
@@ -906,7 +923,9 @@
   white-space: nowrap;
   opacity: 0.7;
   cursor: pointer;
-  transition: background 200ms ease-in-out, opacity 200ms ease-in-out;
+  transition:
+    background 200ms ease-in-out,
+    opacity 200ms ease-in-out;
 }
 
 .super-navbar__list:hover,
@@ -935,19 +954,19 @@
   overflow: auto;
 }
 
-.super-navbar__list-content[data-motion=from-start] {
+.super-navbar__list-content[data-motion="from-start"] {
   animation: enterFromLeft 200ms ease-in-out;
 }
 
-.super-navbar__list-content[data-motion=from-end] {
+.super-navbar__list-content[data-motion="from-end"] {
   animation: enterFromRight 200ms ease-in-out;
 }
 
-.super-navbar__list-content[data-motion=to-start] {
+.super-navbar__list-content[data-motion="to-start"] {
   animation: exitToLeft 200ms ease-in-out;
 }
 
-.super-navbar__list-content[data-motion=to-end] {
+.super-navbar__list-content[data-motion="to-end"] {
   animation: exitToRight 200ms ease-in-out;
 }
 
@@ -968,7 +987,9 @@
   overflow: hidden;
   z-index: 1;
   pointer-events: none;
-  transition: width 200ms ease-in-out, transform 200ms ease;
+  transition:
+    width 200ms ease-in-out,
+    transform 200ms ease;
 }
 
 .super-navbar__list-arrow {
@@ -979,17 +1000,25 @@
   height: 10px;
   transform: rotate(45deg);
   border-top-left-radius: 2px;
-  box-shadow: 0px 11px 7px rgba(0, 0, 0, 0.02), 0px 5px 5px rgba(0, 0, 0, 0.03), 0px 1px 3px rgba(0, 0, 0, 0.03), 0px 0px 0px rgba(0, 0, 0, 0.03);
-  -webkit-box-shadow: 0px 11px 7px rgba(0, 0, 0, 0.02), 0px 5px 5px rgba(0, 0, 0, 0.03), 0px 1px 3px rgba(0, 0, 0, 0.03), 0px 0px 0px rgba(0, 0, 0, 0.03);
+  box-shadow:
+    0px 11px 7px rgba(0, 0, 0, 0.02),
+    0px 5px 5px rgba(0, 0, 0, 0.03),
+    0px 1px 3px rgba(0, 0, 0, 0.03),
+    0px 0px 0px rgba(0, 0, 0, 0.03);
+  -webkit-box-shadow:
+    0px 11px 7px rgba(0, 0, 0, 0.02),
+    0px 5px 5px rgba(0, 0, 0, 0.03),
+    0px 1px 3px rgba(0, 0, 0, 0.03),
+    0px 0px 0px rgba(0, 0, 0, 0.03);
 }
 
-.super-navbar__viewport[data-state=open],
-.super-navbar__list-arrow-wrapper[data-state=visible] {
+.super-navbar__viewport[data-state="open"],
+.super-navbar__list-arrow-wrapper[data-state="visible"] {
   animation: fadeIn 200ms ease-in-out;
 }
 
-.super-navbar__viewport[data-state=closed],
-.super-navbar__list-arrow-wrapper[data-state=hidden] {
+.super-navbar__viewport[data-state="closed"],
+.super-navbar__list-arrow-wrapper[data-state="hidden"] {
   animation: fadeOut 200ms ease-in-out;
 }
 
@@ -1016,10 +1045,21 @@
   width: 100%;
   height: calc(var(--radix-navigation-menu-viewport-height) + 8px);
   background: var(--navbar-background-color);
-  box-shadow: 0px 11px 7px rgba(0, 0, 0, 0.02), 0px 5px 5px rgba(0, 0, 0, 0.03), 0px 1px 3px rgba(0, 0, 0, 0.03), 0px 0px 0px rgba(0, 0, 0, 0.03);
-  -webkit-box-shadow: 0px 11px 7px rgba(0, 0, 0, 0.02), 0px 5px 5px rgba(0, 0, 0, 0.03), 0px 1px 3px rgba(0, 0, 0, 0.03), 0px 0px 0px rgba(0, 0, 0, 0.03);
+  box-shadow:
+    0px 11px 7px rgba(0, 0, 0, 0.02),
+    0px 5px 5px rgba(0, 0, 0, 0.03),
+    0px 1px 3px rgba(0, 0, 0, 0.03),
+    0px 0px 0px rgba(0, 0, 0, 0.03);
+  -webkit-box-shadow:
+    0px 11px 7px rgba(0, 0, 0, 0.02),
+    0px 5px 5px rgba(0, 0, 0, 0.03),
+    0px 1px 3px rgba(0, 0, 0, 0.03),
+    0px 0px 0px rgba(0, 0, 0, 0.03);
   border-radius: 8px;
-  transition: width, height, 200ms ease-in-out;
+  transition:
+    width,
+    height,
+    200ms ease-in-out;
   background: transparent;
 }
 
@@ -1040,7 +1080,11 @@
   top: calc(var(--navbar-height) - 8px);
   overflow: hidden;
   transform-origin: top center;
-  transition: width 200ms ease-in-out, height 200ms ease-in-out, transform 200ms ease-in-out, opacity 200ms ease-in-out;
+  transition:
+    width 200ms ease-in-out,
+    height 200ms ease-in-out,
+    transform 200ms ease-in-out,
+    opacity 200ms ease-in-out;
   animation: fadeIn 200ms ease-in-out;
 }
 
@@ -1109,7 +1153,8 @@
   overflow: hidden;
 }
 
-.super-navbar__actions:has(.super-navbar__button) .notion-link:has(.super-navbar__cta) {
+.super-navbar__actions:has(.super-navbar__button)
+  .notion-link:has(.super-navbar__cta) {
   padding-right: 8px;
 }
 
@@ -1231,7 +1276,9 @@
   transform: scale(1);
   opacity: 1;
   z-index: 30;
-  transition: opacity 200ms ease-out, transform 200ms ease-out;
+  transition:
+    opacity 200ms ease-out,
+    transform 200ms ease-out;
 }
 
 .super-navbar__menu-wrapper.exit {
@@ -1243,7 +1290,9 @@
   transform: scale(0.8);
   opacity: 0;
   z-index: 30;
-  transition: opacity 200ms ease-in-out, transform 200ms ease-in-out;
+  transition:
+    opacity 200ms ease-in-out,
+    transform 200ms ease-in-out;
 }
 
 .super-navbar__menu .super-navbar__item {
@@ -1333,7 +1382,9 @@
     transform: translateY(0);
     opacity: 1;
     z-index: 10;
-    transition: opacity 250ms ease-out, transform 250ms ease-out;
+    transition:
+      opacity 250ms ease-out,
+      transform 250ms ease-out;
   }
   .super-navbar__menu-wrapper.exit {
     transform: translateY(0);
@@ -1342,7 +1393,9 @@
   .super-navbar__menu-wrapper.exit-active {
     transform: translateY(-100%);
     z-index: 10;
-    transition: opacity 250ms ease-in-out, transform 250ms ease-in-out;
+    transition:
+      opacity 250ms ease-in-out,
+      transform 250ms ease-in-out;
   }
   .super-navbar__menu-wrapper {
     transform-origin: top;
@@ -1446,7 +1499,9 @@
   max-width: calc(50vw - 66px);
 }
 
-.static-renderer.mobile .notion-navbar__actions .notion-navbar__search.sidebar-search {
+.static-renderer.mobile
+  .notion-navbar__actions
+  .notion-navbar__search.sidebar-search {
   display: none;
 }
 
@@ -1496,11 +1551,11 @@
   transition: background 150ms ease-out;
 }
 
-.super-navigation-menu__items-scrollbar[data-orientation=vertical] {
+.super-navigation-menu__items-scrollbar[data-orientation="vertical"] {
   width: var(--scrollbar-width);
 }
 
-.super-navigation-menu__items-scrollbar[data-orientation=horizontal] {
+.super-navigation-menu__items-scrollbar[data-orientation="horizontal"] {
   flex-direction: column;
   height: var(--scrollbar-width);
 }
@@ -1605,11 +1660,11 @@
   color: var(--navbar-text-color-dark);
 }
 
-.super-navigation-menu__list-items[data-state=open] {
+.super-navigation-menu__list-items[data-state="open"] {
   animation: slideDown 180ms ease-out forwards;
 }
 
-.super-navigation-menu__list-items[data-state=closed] {
+.super-navigation-menu__list-items[data-state="closed"] {
   animation: slideUp 180ms ease-out forwards;
 }
 
@@ -1656,7 +1711,11 @@
   background-color: var(--navbar-background-color);
   border-radius: 8px;
   padding: 8px;
-  box-shadow: 0px 11px 7px rgba(0, 0, 0, 0.02), 0px 5px 5px rgba(0, 0, 0, 0.03), 0px 1px 3px rgba(0, 0, 0, 0.03), 0px 0px 0px rgba(0, 0, 0, 0.03);
+  box-shadow:
+    0px 11px 7px rgba(0, 0, 0, 0.02),
+    0px 5px 5px rgba(0, 0, 0, 0.03),
+    0px 1px 3px rgba(0, 0, 0, 0.03),
+    0px 0px 0px rgba(0, 0, 0, 0.03);
   min-width: 240px;
 }
 @media (max-width: 546px) {
@@ -1664,10 +1723,10 @@
     min-width: 180px;
   }
 }
-.super-navbar__language-dropdown-content[data-state=open] {
+.super-navbar__language-dropdown-content[data-state="open"] {
   animation: fadeIn 200ms ease-out;
 }
-.super-navbar__language-dropdown-content[data-state=closed] {
+.super-navbar__language-dropdown-content[data-state="closed"] {
   animation: fadeOut 200ms ease-in forwards;
 }
 .super-navbar__language-dropdown-content {
