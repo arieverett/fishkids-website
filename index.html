@@ -821,135 +821,195 @@
           Arial,
           sans-serif;
       }
+      /* Match the website backdrop to the original Fish Kids game artwork. */
+      html {
+        background-color: #128dac;
+      }
+      body {
+        background-color: #128dac;
+        background-image: url("assets/game-background.jpg");
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+      }
+
+      /* One continuous content panel, including the page title. */
+      article.notion-root.max-width {
+        background: rgba(255, 255, 255, 0.91);
+        border-radius: 20px;
+        box-shadow: 0 8px 36px rgba(0, 46, 69, 0.12);
+        padding-top: 30px;
+        padding-bottom: 48px;
+        margin-top: 84px;
+        margin-bottom: 48px;
+      }
+      .fish-page-header {
+        margin: 0 0 26px;
+      }
+      .fish-page-title {
+        color: #e21c2a;
+        font-size: var(--title-size);
+        font-weight: 700;
+        font-style: italic;
+        line-height: 1.2;
+        margin: 0;
+      }
+      /* Use the same white fill and border on both columns, including former gray callouts. */
+      #block-de3ff5b37c604fc8845f31fe14749756 .notion-callout,
+      #block-0c4cc1b27e1b409980d83f68ffe061de .notion-callout {
+        background: #fff !important;
+        border: var(--callout-border) !important;
+      }
+      /* Stretch both pricing cards equally and pin their payment links to the same baseline. */
+      .fish-pricing-grid {
+        align-items: stretch;
+      }
+      .fish-pricing-grid > .notion-column {
+        display: flex;
+        flex-direction: column;
+      }
+      .fish-pricing-grid > .notion-column > .notion-callout {
+        flex: 1 1 auto;
+        height: 100%;
+      }
+      .fish-pricing-grid .notion-callout__content {
+        flex: 1 1 auto;
+      }
+      .fish-pricing-grid .fish-pricing-pay {
+        margin-top: auto;
+        padding-top: 24px;
+      }
+      /* Footer wordmark is real text and shares the title's red italic style. */
+      .fish-footer-brand {
+        color: #e21c2a;
+        font-size: 1.25rem;
+        line-height: 1.2;
+        font-style: italic;
+        font-weight: 700;
+        white-space: nowrap;
+        padding-top: 2px;
+      }
+      @media (max-width: 680px) {
+        article.notion-root.max-width {
+          border-radius: 14px;
+          margin-top: 32px;
+        }
+        .fish-page-header {
+          margin-bottom: 22px;
+        }
+      }
+      /* The introduction takes the whole panel width. Keep both calls to action centered. */
+      .fish-intro {
+        width: 100%;
+        box-sizing: border-box;
+      }
+      .fish-intro > .notion-heading {
+        margin-top: 0;
+      }
+      .fish-cta-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin: 32px auto 36px;
+      }
+      .fish-cta-button {
+        box-sizing: border-box;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        min-height: 54px;
+        padding: 14px 22px;
+        border: 1px solid rgba(28, 76, 96, 0.18);
+        border-radius: 10px;
+        background: #fff;
+        color: #333;
+        font-weight: 600;
+        text-align: center;
+        text-decoration: none;
+        transition: border-color 0.15s ease, box-shadow 0.15s ease;
+      }
+      .fish-cta-button:hover,
+      .fish-cta-button:focus-visible {
+        border-color: #1385a3;
+        box-shadow: 0 3px 12px rgba(0, 65, 90, 0.14);
+      }
+      /* One concise horizontal footer, with simple dividers between items. */
+      .fish-footer-bar {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 12px;
+        padding: 20px 0 4px;
+        line-height: 1.5;
+      }
+      .fish-footer-bar a {
+        color: inherit;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+      .fish-footer-divider {
+        color: #82949c;
+        user-select: none;
+      }
+      .fish-footer-bar .fish-footer-brand {
+        padding: 0;
+        margin-right: 2px;
+      }
+      @media (max-width: 680px) {
+        .fish-cta-row {
+          gap: 12px;
+          margin: 25px auto 30px;
+        }
+        .fish-cta-button {
+          width: 100%;
+        }
+        .fish-footer-bar {
+          gap: 8px 12px;
+        }
+      }
     </style>
   </head>
   <body>
     <div class="super-root">
       <div class="super-content-wrapper">
         <main class="super-content page__index" id="page-index">
-          <div class="notion-header page">
-            <div class="notion-header__cover no-cover has-icon"></div>
-            <div class="notion-header__content max-width no-cover has-icon">
-              <div class="notion-header__title-wrapper">
-                <div class="notion-header__icon-wrapper no-cover has-icon">
-                  <div>🐠</div>
-                </div>
-                <h1 class="notion-header__title">FISH KIDS</h1>
-              </div>
-            </div>
-          </div>
           <article
             class="notion-root max-width"
             id="block-e9f5b22d579b40f88adacde68f4559d7"
           >
-            <div
-              class="notion-column-list"
-              id="block-92dcc4e0aa374c53a71577600cce810e"
-            >
-              <div
-                class="notion-column"
-                id="block-0c6deca62a134177ae63c6fa8c3a52be"
-                style="width: calc((100% - var(--column-spacing) * 1) * 0.625)"
+            <header class="fish-page-header">
+              <h1 class="fish-page-title">FISH KIDS</h1>
+            </header>
+            <section class="fish-intro" aria-labelledby="fish-intro-heading">
+              <h2
+                class="notion-heading notion-semantic-string"
+                id="fish-intro-heading"
               >
-                <span
-                  class="notion-heading__anchor"
-                  id="94118428f81e44e69126b81295925048"
-                ></span>
-                <h1
-                  class="notion-heading notion-semantic-string"
-                  id="block-94118428f81e44e69126b81295925048"
-                >
-                  Dive into better motor skills!
-                </h1>
-                <p
-                  class="notion-text notion-text__content notion-semantic-string"
-                  id="block-f8bd6b592c1742a2bc1c23a404d64d89"
-                >
-                  Get your kids out of their
-                  <span class="highlighted-background bg-red"
-                    ><em><strong>flop</strong></em></span
-                  ><em><strong> </strong></em>📉 era, and into their
-                  <span class="highlighted-background bg-green"
-                    ><em><strong>guap </strong></em></span
-                  >💰 era, with
-                  <span class="highlighted-color color-red"
-                    ><em><strong>FISH KIDS</strong></em></span
-                  >! It’ll help your youngsters develop fine motor skills that
-                  will pay the bills 👍.
-                </p>
+                Dive into better motor skills!
+              </h2>
+              <p class="notion-text notion-text__content notion-semantic-string">
+                Get your kids out of their
+                <span class="highlighted-background bg-red"><em><strong>flop</strong></em></span>
+                📉 era, and into their
+                <span class="highlighted-background bg-green"><em><strong>guap </strong></em></span>
+                💰 era, with
+                <span class="highlighted-color color-red"><em><strong>FISH KIDS</strong></em></span>!
+                It’ll help your youngsters develop fine motor skills that will pay the bills 👍.
+              </p>
+              <div class="fish-cta-row" aria-label="Fish Kids links">
+                <a class="fish-cta-button" href="https://editor.p5js.org/arieverett/full/XRgiijiGI" target="_blank" rel="noopener noreferrer">
+                  <span aria-hidden="true">🕹️</span> Click here to play the game
+                </a>
+                <a class="fish-cta-button" href="https://account.venmo.com/u/summerthekid" target="_blank" rel="noopener noreferrer">
+                  <span aria-hidden="true">🤑</span> Click here to donate
+                </a>
               </div>
-              <div
-                class="notion-column"
-                id="block-c92b74bb11404dd3a8bc76e4cf49fe42"
-                style="
-                  width: calc(
-                    (100% - var(--column-spacing) * 1) * 0.37500000000000006
-                  );
-                  margin-inline-start: var(--column-spacing);
-                "
-              >
-                <div
-                  class="notion-callout border"
-                  id="block-a4d813fc27ac4b44b7f67859d7064b1a"
-                >
-                  <div class="notion-callout__icon">
-                    <span
-                      class="notion-icon text"
-                      style="
-                        width: 20px;
-                        height: 20px;
-                        font-size: 20px;
-                        fill: var(--color-text-default-light);
-                      "
-                      >🤑</span
-                    >
-                  </div>
-                  <div class="notion-callout__content">
-                    <span class="notion-semantic-string"
-                      ><strong
-                        ><a
-                          class="notion-link link"
-                          href="https://account.venmo.com/u/summerthekid"
-                          rel="noopener noreferrer"
-                          target="_blank"
-                          >Donate →</a
-                        ></strong
-                      ><strong> </strong
-                    ></span>
-                  </div>
-                </div>
-                <div
-                  class="notion-callout border"
-                  id="block-30c6f12b970f44738e390c63f5d18177"
-                >
-                  <div class="notion-callout__icon">
-                    <span
-                      class="notion-icon text"
-                      style="
-                        width: 20px;
-                        height: 20px;
-                        font-size: 20px;
-                        fill: var(--color-text-default-light);
-                      "
-                      >🕹️</span
-                    >
-                  </div>
-                  <div class="notion-callout__content">
-                    <span class="notion-semantic-string"
-                      ><strong
-                        ><a
-                          class="notion-link link"
-                          href="https://editor.p5js.org/arieverett/full/XRgiijiGI"
-                          rel="noopener noreferrer"
-                          target="_blank"
-                          >Play the game →</a
-                        ></strong
-                      ><strong> </strong
-                    ></span>
-                  </div>
-                </div>
-              </div>
-            </div>
+            </section>
             <span
               class="notion-embed"
               id="block-96b9d3f20ec34a88b5b4fe2988e0cd83"
@@ -1137,10 +1197,7 @@
               class="notion-heading notion-semantic-string"
               id="block-6cbe0638169a4e4d8d34956dd7e5768f"
             >
-              Kid Tested, Doctor Approved<span
-                class="highlighted-color color-gray"
-                >*</span
-              >
+              Kid Tested, Research Approved
             </h1>
             <p
               class="notion-text notion-text__content notion-semantic-string"
@@ -1149,15 +1206,14 @@
               Combining medical research in child psychology along with
               top-notch engineering solutions and design heuristics, we created
               the best possible games that would develop all aspects of your
-              kid’s fine motor skills. We
+              kid’s fine motor skills. There are
               <a
                 class="notion-link link"
                 href="https://www.verywellfamily.com/what-are-motor-skills-3107058#:~:text=Components%20of%20fine%20motor%20skills,rather%20than%20the%20whole%20hand"
                 rel="noopener noreferrer"
                 target="_blank"
-                >found</a
+                >3 main aspects to fine motor skills:</a
               >
-              that there are 3 main aspects to fine motor skills:
               <strong
                 ><em
                   >1. hand-eye coordination, 2. manipulating objects, and 3.
@@ -1186,14 +1242,7 @@
               >
               one-stop-shop game!
             </p>
-            <p
-              class="notion-text notion-text__content notion-semantic-string"
-              id="block-c2d6a764b58444968512ee7747ae44a0"
-            >
-              <span class="highlighted-color color-gray"
-                ><em>*not actually</em></span
-              >
-            </p>
+            
             <div
               class="notion-column-list fish-feature-grid"
               id="block-129a5fb91b1c4985bbc2f2835a919a76"
@@ -1621,7 +1670,7 @@
               Pricing
             </h1>
             <div
-              class="notion-column-list"
+              class="notion-column-list fish-pricing-grid"
               id="block-0c4cc1b27e1b409980d83f68ffe061de"
             >
               <div
@@ -1703,7 +1752,7 @@
                       id="block-3eaa5b6fe1fc457abf2f59826485c6ab"
                     ></div>
                     <p
-                      class="notion-text notion-text__content notion-semantic-string"
+                      class="notion-text notion-text__content notion-semantic-string fish-pricing-pay"
                       id="block-54b471943cb34427b4e54f9d45f0b3c5"
                     >
                       <strong
@@ -1816,7 +1865,7 @@
                       id="block-bb2ae7f3cc3b4d639fbbb66445ff9c1f"
                     ></div>
                     <p
-                      class="notion-text notion-text__content notion-semantic-string"
+                      class="notion-text notion-text__content notion-semantic-string fish-pricing-pay"
                       id="block-7a90f58e8fa74ea5bbc6070e9cae1d6a"
                     >
                       <strong
@@ -1997,130 +2046,13 @@
               class="notion-divider"
               id="block-72cdb6f6fda245beb7b3e84111c8b912"
             ></div>
-            <div
-              class="notion-column-list"
-              id="block-2dfd5d86999a4b32ace939f1dcf87af9"
-            >
-              <div
-                class="notion-column"
-                id="block-bb9052fddeab45ae9596fb0b5676faa6"
-                style="width: calc((100% - var(--column-spacing) * 2) * 0.25)"
-              >
-                <div
-                  class="notion-image align-start page-width"
-                  id="block-d366f276a3ce4f1dbbceb0623021e51d"
-                >
-                  <span style="display: contents"
-                    ><img
-                      alt="Fish Kids logo and wordmark"
-                      height="150"
-                      src="assets/fish-kids-logo-app-and-workdmark.png"
-                      style="
-                        color: transparent;
-                        object-fit: contain;
-                        object-position: center;
-                        height: auto;
-                      "
-                      width="1000"
-                  /></span>
-                </div>
-                <div
-                  class="notion-text"
-                  id="block-589e2f50a1224b76a760fad206635dcc"
-                ></div>
-              </div>
-              <div
-                class="notion-column"
-                id="block-b04b6fca6c4541a2b1f623fe6c94a349"
-                style="
-                  width: calc((100% - var(--column-spacing) * 2) * 0.375);
-                  margin-inline-start: var(--column-spacing);
-                "
-              >
-                <span
-                  class="notion-heading__anchor"
-                  id="eda928c3e4624023a82d9b49ecb681a0"
-                ></span>
-                <h3
-                  class="notion-heading notion-semantic-string"
-                  id="block-eda928c3e4624023a82d9b49ecb681a0"
-                >
-                  Source Files
-                </h3>
-                <p
-                  class="notion-text notion-text__content notion-semantic-string"
-                  id="block-54d164e9ba70496dbd3b3d562ad9be81"
-                >
-                  Head to our github to view and download source files
-                </p>
-                <div
-                  class="notion-text"
-                  id="block-bf732444435f4985a117ae2ab0ac1e27"
-                ></div>
-                <p
-                  class="notion-text notion-text__content notion-semantic-string"
-                  id="block-a759487c0c404affbe3fceaa58896c8c"
-                >
-                  <a
-                    class="notion-link link"
-                    href="https://github.com/arieverett/fish-kids-game"
-                    rel="noopener noreferrer"
-                    target="_blank"
-                    ><strong>Github</strong></a
-                  >
-                </p>
-                <div
-                  class="notion-text"
-                  id="block-02b536a2d40d44aaa0051130004a67f1"
-                ></div>
-              </div>
-              <div
-                class="notion-column"
-                id="block-100e9ee0fdb7484e84165eabe1e9fce7"
-                style="
-                  width: calc((100% - var(--column-spacing) * 2) * 0.375);
-                  margin-inline-start: var(--column-spacing);
-                "
-              >
-                <span
-                  class="notion-heading__anchor"
-                  id="bf6e9d860f604525aeaa190ff711d66f"
-                ></span>
-                <h3
-                  class="notion-heading notion-semantic-string"
-                  id="block-bf6e9d860f604525aeaa190ff711d66f"
-                >
-                  Contact us
-                </h3>
-                <p
-                  class="notion-text notion-text__content notion-semantic-string"
-                  id="block-75e4d78d108541e58fe904991f5623ef"
-                >
-                  We will get back really fast i promise<span
-                    class="highlighted-color color-gray"
-                  >
-                  </span>
-                </p>
-                <div
-                  class="notion-text"
-                  id="block-bf501304ab9748a4b103fef65099f41d"
-                ></div>
-                <p
-                  class="notion-text notion-text__content notion-semantic-string"
-                  id="block-73f090f2343e474883e5c5855be3bce9"
-                >
-                  <strong
-                    ><a
-                      class="notion-link link"
-                      href="mailto:ari.everett@asu.edu"
-                      rel="noopener noreferrer"
-                      target="_blank"
-                      >hello@fishkidsgame.com</a
-                    ></strong
-                  >
-                </p>
-              </div>
-            </div>
+            <footer class="fish-footer-bar" aria-label="Fish Kids footer">
+              <span class="fish-footer-brand">FISH KIDS</span>
+              <span class="fish-footer-divider" aria-hidden="true">|</span>
+              <a href="https://github.com/arieverett/fishkids-website" target="_blank" rel="noopener noreferrer">Source files</a>
+              <span class="fish-footer-divider" aria-hidden="true">|</span>
+              <a href="mailto:ari.everett@asu.edu">Contact us</a>
+            </footer>
             <div
               class="notion-text"
               id="block-14b31824643748fe810a7e6bb9f032fb"
