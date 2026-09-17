@@ -3,6 +3,14 @@
 <html class="theme-default" dir="ltr" lang="en">
   <head>
     <meta charset="utf-8" />
+    <script>
+      /* Chrome iOS identifies itself as CriOS; other iOS browsers and devices
+         keep the original fixed artwork. This does not change page scrolling. */
+      if (/CriOS\//.test(navigator.userAgent) && /iP(?:hone|ad|od)/.test(navigator.userAgent)) {
+        document.documentElement.classList.add("fish-ios-chrome");
+      }
+    </script>
+
     <meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport" />
     <title>FISH KIDS</title>
     <meta
@@ -14,7 +22,7 @@
       content="Dive into better motor skills with FISH KIDS."
       property="og:description"
     />
-    <meta content="#ffffff" name="theme-color" />
+    <meta content="#128dac" name="theme-color" />
     <link href="assets/favicon.svg" rel="icon" type="image/svg+xml" />
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
@@ -1018,10 +1026,19 @@
         display: none;
       }
 
-      /* Blue remains behind the artwork for natural pull-to-refresh / overscroll. */
+      /* Ocean artwork on the ROOT canvas, not only a positioned child.
+         Some iOS browsers render their landscape safe-area margins using the
+         root background rather than painting the page's fixed descendants.
+         This is a fallback for the safe areas the browser permits us to paint;
+         browser-owned toolbar/status regions are not part of the webpage. */
       html {
         min-height: 100%;
-        background: #128dac;
+        background-color: #128dac;
+        background-image: url("assets/game-background.jpg");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
       }
       body {
         min-height: 100vh;
@@ -1059,21 +1076,28 @@
         z-index: 1;
       }
 
-      /* iOS landscape can confine 100vw to the safe-area width even with
-         viewport-fit=cover. Extend the artwork well beyond both side insets
-         so no solid-blue gutters can show beside the image. Keep the image
-         proportional (object-fit: cover), and its height based on the stable
-         LARGE viewport, not the browser toolbar's changing visible height.
-         Compositing the fixed layer separately reduces repaints on scroll.
-         Portrait and desktop retain their existing, working behavior. */
+      /* Chrome on iOS has a WebKit fixed-layer paint bug while its URL bar
+         collapses on scroll. For Chrome LANDSCAPE ONLY, use a sticky element
+         anchored inside the full page instead of a fixed element. The image
+         stays at the scrollport top, while the negative margin lets the page
+         content retain exactly its previous vertical position. The root
+         background above also provides an image fallback for safe-area fill.
+         Portrait, Safari and desktop retain the working fixed implementation. */
       @media (orientation: landscape) and (pointer: coarse) {
-        .fish-viewport-background {
-          left: -12vw;
-          width: 124vw;
-          -webkit-transform: translate3d(0, 0, 0);
-          transform: translate3d(0, 0, 0);
-          -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
+        html.fish-ios-chrome .fish-viewport-background {
+          position: -webkit-sticky;
+          position: sticky;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100vh;
+          height: 100lvh;
+          margin-bottom: -100vh;
+          margin-bottom: -100lvh;
+          -webkit-transform: none;
+          transform: none;
+          -webkit-backface-visibility: visible;
+          backface-visibility: visible;
         }
       }
 
