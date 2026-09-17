@@ -788,13 +788,27 @@
       .notion-semantic-string {
         white-space: normal;
       }
-      /* Matching outlined cards for the two three-column feature sections. */
-      .fish-feature-card {
+      /* Give feature cards breathing room beneath their introductory text. */
+      .fish-feature-grid {
+        margin-top: 24px;
+      }
+
+      /* Match the existing outlined callouts across features and team cards. */
+      .fish-feature-card,
+      .fish-team-card {
         box-sizing: border-box;
         border: var(--callout-border);
         border-radius: var(--callout-border-radii);
         padding: 16px;
         background: var(--color-bg-default);
+      }
+
+      /* Keep individual cards distinct when columns stack on narrow screens. */
+      @media (max-width: 680px) {
+        .fish-feature-grid,
+        .fish-team-grid {
+          gap: 12px;
+        }
       }
 
       /* Explicit fallback if the remote font stylesheet isn't available. */
@@ -994,7 +1008,7 @@
               anything else you can think of. Select among:
             </p>
             <div
-              class="notion-column-list"
+              class="notion-column-list fish-feature-grid"
               id="block-da50cb7156e2411c96d4b07453950a06"
             >
               <div
@@ -1181,7 +1195,7 @@
               >
             </p>
             <div
-              class="notion-column-list"
+              class="notion-column-list fish-feature-grid"
               id="block-129a5fb91b1c4985bbc2f2835a919a76"
             >
               <div
@@ -1834,11 +1848,11 @@
               Team
             </h1>
             <div
-              class="notion-column-list"
+              class="notion-column-list fish-team-grid"
               id="block-54f4b269d5204660aa23c1d767257d6d"
             >
               <div
-                class="notion-column"
+                class="notion-column fish-team-card"
                 id="block-9f7fdfc5f55b44a7ad943cc3bdb15ea3"
                 style="
                   width: calc(
@@ -1883,7 +1897,7 @@
                 </p>
               </div>
               <div
-                class="notion-column"
+                class="notion-column fish-team-card"
                 id="block-d16df215e80c4fb6b322bd4b82bd8731"
                 style="
                   width: calc(
@@ -1929,7 +1943,7 @@
                 </p>
               </div>
               <div
-                class="notion-column"
+                class="notion-column fish-team-card"
                 id="block-ef08748d684442078275adf2c51593ce"
                 style="
                   width: calc(
