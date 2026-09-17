@@ -788,6 +788,15 @@
       .notion-semantic-string {
         white-space: normal;
       }
+      /* Matching outlined cards for the two three-column feature sections. */
+      .fish-feature-card {
+        box-sizing: border-box;
+        border: var(--callout-border);
+        border-radius: var(--callout-border-radii);
+        padding: 16px;
+        background: var(--color-bg-default);
+      }
+
       /* Explicit fallback if the remote font stylesheet isn't available. */
       body {
         font-family:
@@ -804,21 +813,6 @@
     <div class="super-root">
       <div class="super-content-wrapper">
         <main class="super-content page__index" id="page-index">
-          <nav class="notion-navbar">
-            <div class="notion-navbar__content">
-              <div class="notion-breadcrumb">
-                <a
-                  class="notion-link notion-breadcrumb__item single has-icon"
-                  href="./"
-                  ><div style="font-size: 18px; line-height: 1">🐠</div>
-                  <div class="notion-navbar__title notion-breadcrumb__title">
-                    FISH KIDS
-                  </div></a
-                >
-              </div>
-              <div class="notion-navbar__actions"></div>
-            </div>
-          </nav>
           <div class="notion-header page">
             <div class="notion-header__cover no-cover has-icon"></div>
             <div class="notion-header__content max-width no-cover has-icon">
@@ -1004,7 +998,7 @@
               id="block-da50cb7156e2411c96d4b07453950a06"
             >
               <div
-                class="notion-column"
+                class="notion-column fish-feature-card"
                 id="block-ef7c92aad8064eaf8d776fe9c665d288"
                 style="
                   width: calc(
@@ -1041,7 +1035,7 @@
                 </p>
               </div>
               <div
-                class="notion-column"
+                class="notion-column fish-feature-card"
                 id="block-472303860219464eb7faba0542a69e23"
                 style="
                   width: calc(
@@ -1079,7 +1073,7 @@
                 </p>
               </div>
               <div
-                class="notion-column"
+                class="notion-column fish-feature-card"
                 id="block-7c8ee30f164a44929a9fdcdf3da28bac"
                 style="
                   width: calc(
@@ -1191,7 +1185,7 @@
               id="block-129a5fb91b1c4985bbc2f2835a919a76"
             >
               <div
-                class="notion-column"
+                class="notion-column fish-feature-card"
                 id="block-c2918b83b4d84a8bbefbb3782e88b448"
                 style="
                   width: calc(
@@ -1248,7 +1242,7 @@
                 </p>
               </div>
               <div
-                class="notion-column"
+                class="notion-column fish-feature-card"
                 id="block-90f4e814ad154ce79b22dc5bb6f41219"
                 style="
                   width: calc(
@@ -1312,7 +1306,7 @@
                 </p>
               </div>
               <div
-                class="notion-column"
+                class="notion-column fish-feature-card"
                 id="block-7958077bf999495284a28a9474546cf1"
                 style="
                   width: calc(
