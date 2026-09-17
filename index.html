@@ -1059,6 +1059,24 @@
         z-index: 1;
       }
 
+      /* iOS landscape can confine 100vw to the safe-area width even with
+         viewport-fit=cover. Extend the artwork well beyond both side insets
+         so no solid-blue gutters can show beside the image. Keep the image
+         proportional (object-fit: cover), and its height based on the stable
+         LARGE viewport, not the browser toolbar's changing visible height.
+         Compositing the fixed layer separately reduces repaints on scroll.
+         Portrait and desktop retain their existing, working behavior. */
+      @media (orientation: landscape) and (pointer: coarse) {
+        .fish-viewport-background {
+          left: -12vw;
+          width: 124vw;
+          -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+          -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+        }
+      }
+
       /* Leave a visible strip of ocean around the panel on phones and tablets. */
       @media (max-width: 900px) {
         article.notion-root.max-width {
